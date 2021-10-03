@@ -3,6 +3,7 @@ require 'Coin'
 require 'Enemies'
 require 'Menu'
 require 'Cronnos'
+require 'Hearts'
 
 function Map:init(world)
     self.world = world
@@ -31,6 +32,7 @@ function Map:init(world)
     self:createObstaculos(self.layer)
     self:createMolas(self.layer)
     self:createMoedas(self.layer)
+    self:createHP(self.layer)
     self:createEnemies(self.layer)
     self:saidas(self.layer)
 
@@ -135,6 +137,7 @@ function Map:update(dt)
             self:createObstaculos(self.layer)
             self:createMolas(self.layer)
             self:createMoedas(self.layer)
+            self:createHP(self.layer)
             self:createEnemies(self.layer)
             self:saidas(self.layer)
             --]]
@@ -236,5 +239,13 @@ function Map:saidas(layer)
         {collision_class = 'Saida'})
         saida:setType('static')
         table.insert(self.saida,saida)
+    end
+end
+
+function Map:createHP(layer)
+    local coraçao
+    for _, obj in ipairs(self.gameMap.layers['hearts '..layer].objects) do
+        coraçao  = Hearts(self.world,obj.x,obj.y)
+        table.insert(self.coins,coraçao)
     end
 end

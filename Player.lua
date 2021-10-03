@@ -124,6 +124,12 @@ function Player:update(dt)
             self.onHit = true
             self.timer:start()
         end
+        if self.body:enter('vida')then
+            self.hp = self.hp+1
+            self.onHit = true
+            self.timer:start()
+        end
+
     end
 
     if self.body:enter('Molas') then
@@ -156,7 +162,7 @@ function Player:draw()
                         0,self.direction,1,self.w/2,self.h/2)
 
     if self.onHit then
-        love.graphics.printf(self.hp,self.x,self.y-25,10,'left')
+        love.graphics.printf(self.hp,self.x,self.y-25,30,'left')
     end
     
 

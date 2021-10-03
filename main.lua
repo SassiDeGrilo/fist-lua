@@ -26,7 +26,8 @@ function love.load()
     world:addCollisionClass('Molas')
     world:addCollisionClass('Coletavel')
     world:addCollisionClass('Saida')
-    world:addCollisionClass('Player', {ignores = {'Saida','Coletavel'}})
+    world:addCollisionClass('vida')
+    world:addCollisionClass('Player', {ignores = {'Saida','Coletavel','vida'}})
     
 
     map = Map(world)
@@ -75,7 +76,7 @@ function love.draw()
         
     else 
         Menu:draw()
-        player.hp = 15
+        player.hp = 5
         player.body:setPosition(150,70)
         map.layer = '00'
     end
