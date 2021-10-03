@@ -23,7 +23,7 @@ function Player:init(world)
     self.sound = {}
     self.sound.jump = love.audio.newSource('audios/Jump.wav','static')
     self.sound.jump:setVolume(0.15)
-    self.sound.death =love.audio.newSource('audios/Death Meme Song.wav','stream')
+    self.sound.death =love.audio.newSource('audios/TragicDeath.wav','stream')
     self.sound.death:setVolume(0.2)
     
     self.body = world:newRectangleCollider(self.x,self.y,self.w,self.h,{collision_class = 'Player'})
